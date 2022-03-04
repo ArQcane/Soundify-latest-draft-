@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#292929"
+    android:onClick="repeatSong"
+    tools:context=".PlaySongActivity">
+
+    <ImageView
+        android:id="@+id/imgCoverArt"
+        android:layout_width="350dp"
+        android:layout_height="350dp"
+        android:layout_marginTop="52dp"
+        android:alpha="0.4"
+        android:scaleType="fitCenter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/home" />
+
+    <TextView
+        android:id="@+id/txtSongTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Song Title"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imgCoverArt"
+        app:layout_constraintEnd_toEndOf="@+id/imgCoverArt"
+        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintStart_toStartOf="@+id/imgCoverArt"
+        app:layout_constraintTop_toTopOf="@+id/imgCoverArt"
+        app:layout_constraintVertical_bias="0.864" />
+
+    <TextView
+        android:id="@+id/txtArtiste"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Artist"
+        android:textAlignment="center"
+        android:textColor="#D6FFFFFF"
+        app:layout_constraintStart_toStartOf="@+id/txtSongTitle"
+        app:layout_constraintTop_toBottomOf="@+id/txtSongTitle" />
+
+    <Button
+        android:id="@+id/btnPrevious"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="40dp"
+        android:background="@drawable/back"
+        android:onClick="playPrevious"
+        app:layout_constraintEnd_toStartOf="@+id/btnPlayPause"
+        app:layout_constraintTop_toTopOf="@+id/btnPlayPause" />
+
+    <Button
+        android:id="@+id/btnPlayPause"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="@drawable/ic_outline_play_circle_outline_24"
+        android:onClick="playOrPauseMusic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/seekBar1"
+        app:layout_constraintVertical_bias="0.444" />
+
+    <Button
+        android:id="@+id/btnNext"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/next"
+        android:onClick="playNext"
+        app:layout_constraintStart_toEndOf="@+id/btnPlayPause"
+        app:layout_constraintTop_toTopOf="@+id/btnPlayPause" />
+
+    <SeekBar
+        android:id="@+id/seekBar1"
+        android:layout_width="300dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="28dp"
+        android:progressBackgroundTint="#BB86FC"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgCoverArt" />
+
+    <Button
+        android:id="@+id/shuffleBtn"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/shuffle_off"
+        android:onClick="shuffleFlag"
+        app:layout_constraintBottom_toTopOf="@+id/btnPrevious"
+        app:layout_constraintEnd_toStartOf="@+id/btnPrevious"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/seekBar1"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/currentProgress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="52dp"
+        android:text="0"
+        android:textColor="#FFFFFF"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@+id/shuffleBtn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgCoverArt"
+        app:layout_constraintVertical_bias="0.04" />
+
+    <TextView
+        android:id="@+id/endProgress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="30s"
+        android:textColor="#FFFFFF"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="@+id/currentProgress"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.829"
+        app:layout_constraintStart_toEndOf="@+id/currentProgress"
+        app:layout_constraintTop_toTopOf="@+id/currentProgress"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/repeatBtn"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:background="@drawable/repeat_off"
+        android:onClick="repeatSong"
+        app:layout_constraintBottom_toBottomOf="@+id/shuffleBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.9"
+        app:layout_constraintStart_toEndOf="@+id/shuffleBtn"
+        app:layout_constraintTop_toTopOf="@+id/shuffleBtn" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
